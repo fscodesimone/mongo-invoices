@@ -5,9 +5,10 @@
  */
 
 global.settings = {
-	port:		8003,
+	port:		8000,
 	dbPort:		27017,
-	dbHost:		'localhost',
+	//dbHost:		'localhost',
+	dbHost:		'127.0.0.1',
 	dbName:		"admin-linux"
 }
 var DB = require('./app/server/modules/db-manager');

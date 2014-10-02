@@ -1,5 +1,5 @@
 {
-  "name": "webmakeapp-invoices,
+  "name": "webmakeapp-invoices",
   "version": "0.0.1",
   "description": "Web Make App open-source invoice system build on node.js and mongodb",
   "main": "app.js",

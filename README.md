@@ -1,5 +1,7 @@
-Gestione Fatture Node.js/MongoDBs
+Gestione Fatture Node.js/MongoDB
 =============
+
+Software Necessario 
 ------------
 
 * NodeJS http://nodejs.org/

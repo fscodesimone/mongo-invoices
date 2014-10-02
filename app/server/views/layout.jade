@@ -25,6 +25,25 @@ html
 							span.icon-bar
 						a.navbar-brand(href="/")!="Gestione Fatture"
 					.collapse.navbar-collapse#bs-example-navbar-collapse-1
+						ul.nav.navbar-nav
+							li.active
+								a(href="#") Home
+							li
+								a(href="/clients") Clienti
+							li
+								a(href="/offers") Offerte
+							li
+								a(href="/invoices") Fatture
+							li.dropdown
+								a.dropdown-toggle(href='#', data-toggle='dropdown')
+									| Clienti
+									span.caret
+										ul.dropdown-menu(role='menu')
+											li
+												a(href='#') Action
+											li.divider
+											li
+												a(href='#') Action 2
 						.navbar-form.navbar-right
 							a(href="/logout")#btn-logout.btn.btn-primary
 								i.glyphicon.glyphicon-lock.icon-white
