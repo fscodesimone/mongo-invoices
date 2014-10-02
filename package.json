@@ -1,7 +1,7 @@
 {
-  "name": "mongo-invoices",
-  "version": "0.0.0",
-  "description": "open-source invoice system build on node.js and mongodb",
+  "name": "webmakeapp-invoices,
+  "version": "0.0.1",
+  "description": "Web Make App open-source invoice system build on node.js and mongodb",
   "main": "app.js",
   "dependencies": {
     "accounting": "~0.3.2",
@@ -20,14 +20,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/gianlucadelgobbo/mongo-invoices.git"
+    "url": "git://github.com/fscodesimone/mongo-invoices.git"
   },
   "keywords": [
     "invoices",
     "mongodb",
     "node.js"
   ],
-  "author": "Gianluca Del Gobbo <g.delgobbo@flyer.it>",
+  "author": "Francesco De Simone<fsco.desimone@gmail.com>",
   "license": "BSD",
   "readmeFilename": "README.md",
   "private": true
