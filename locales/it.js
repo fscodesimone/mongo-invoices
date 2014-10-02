@@ -130,5 +130,6 @@
 	"Please enter a valid Client": "Inserisci un Cliente valido",
 	"Signup": "Accedi",
 	"Please enter a valid Name": "Inserisci un nome valido",
-	"Account saved with success": "Account salvato con successo."
+	"Account saved with success": "Account salvato con successo.",
+	"Login To Your Account": "Login To Your Account"
 }
