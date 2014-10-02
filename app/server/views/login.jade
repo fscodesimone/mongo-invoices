@@ -3,7 +3,6 @@ div.col-sm-4.col-sm-offset-4#login-container
 	form(method="post")#login-form.well
 		input(type="hidden", name="from", value=from)
 		h1.page-title="WebMakeApp Gestione Fatture"
-		p.subheading=__("Login To Your Account")
 		- if (typeof errors !== "undefined" && errors.length)
 			.alert.alert-danger
 				h4=__("There are some errors")
@@ -25,7 +24,7 @@ div.col-sm-4.col-sm-offset-4#login-container
 					a(href='#',onclick="$('#get-credentials').modal('show');return false;")#forgot-password=__("Forgot Your Password?")
 		button(type="submit").btn.btn-primary
 			i.glyphicon.glyphicon-lock.icon-white
-			=" "+__("Sign in")
+			=" "+__("Accedi")
 			
 include modals/lost-password
 

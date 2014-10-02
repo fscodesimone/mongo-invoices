@@ -251,5 +251,7 @@
 	"You have to upload an image at least": "You have to upload an image at least",
 	"pixels": "pixels",
 	"Technical rider": "Technical rider",
-	"visits": "visits"
+	"visits": "visits",
+	"Gestione Fatture  -  Login PAge": "Gestione Fatture  -  Login PAge",
+	"Accedi": "Accedi"
 }

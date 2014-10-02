@@ -131,5 +131,7 @@
 	"Signup": "Accedi",
 	"Please enter a valid Name": "Inserisci un nome valido",
 	"Account saved with success": "Account salvato con successo.",
-	"Login To Your Account": "Login To Your Account"
+	"Login To Your Account": "Login To Your Account",
+	"Accedi": "Accedi",
+	"Gestione Fatture  -  Login PAge": "Gestione Fatture  -  Login PAge"
 }

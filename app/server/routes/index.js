@@ -7,8 +7,7 @@ exports.get = function get(req, res) {
     if(result){
       // check if the user's credentials are saved in a cookie //
       if (req.cookies.user === undefined || req.cookies.pass === undefined || req.cookies.role === undefined){
-            console.log("stocazzo");
-        res.render('login', { locals: { title: __('Hello - Please Login To Your Account'), result : {}, from:req.query.from }});
+        res.render('login', { locals: { title: __('Gestione Fatture  -  Login PAge'), result : {}, from:req.query.from }});
       } else {
         // attempt automatic login //
         DB.accounts.findOne({user:req.cookies.user}, function(e, o) {
