@@ -7,9 +7,8 @@
 global.settings = {
 	port:		8000,
 	dbPort:		27017,
-	//dbHost:		'localhost',
 	dbHost:		'127.0.0.1',
-	dbName:		"admin-linux"
+	dbName:		"webmakeapp_invoices"
 }
 var DB = require('./app/server/modules/db-manager');
 
@@ -23,7 +22,7 @@ DB.init(function(){
 	require('./app/server/router')(app);
 	
 	app.listen(global.settings.port, function(){
-		console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
+		console.log("Server OK ! listening on port %d in %s mode", app.address().port, app.settings.env);
 	});
 });	
 

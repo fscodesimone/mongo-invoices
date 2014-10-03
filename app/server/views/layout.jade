@@ -23,67 +23,77 @@ html
 							span.icon-bar
 							span.icon-bar
 							span.icon-bar
-						a.navbar-brand(href="/")!="Gestione Fatture"
+						a.navbar-brand(href="/")!="WebMakeApp"
 					.collapse.navbar-collapse#bs-example-navbar-collapse-1
 						ul.nav.navbar-nav
 							li.active
 								a(href="#") Home
-							li
-								a(href="/clients") Clienti
-							li
-								a(href="/offers") Offerte
-							li
-								a(href="/invoices") Fatture
+							- if(locals.udata.role=='admin' || locals.udata.role=='editor')
+								li.dropdown
+									a.dropdown-toggle(href='#', data-toggle='dropdown')
+										| Clienti
+										span.caret
+											ul.dropdown-menu(role='menu')
+												li
+													a(href='/clients') Lista Clienti
+												li.divider
+												li
+													a(href='/client') Nuovo Cliente
 							li.dropdown
 								a.dropdown-toggle(href='#', data-toggle='dropdown')
-									| Clienti
+									| Preventivi
 									span.caret
 										ul.dropdown-menu(role='menu')
 											li
-												a(href='#') Action
+												a(href='/offers') Lista Preventivi
 											li.divider
 											li
-												a(href='#') Action 2
+												a(href='/offer') Nuovo Preventivo
+							li.dropdown
+								a.dropdown-toggle(href='#', data-toggle='dropdown')
+									| Fatture
+									span.caret
+										ul.dropdown-menu(role='menu')
+											li
+												a(href='/invoices') Lista Fatture
+											li.divider
+											li
+												a(href='/invoice') Nuova Fattura
+							- if(locals.udata.role=='admin')
+								li.dropdown
+									a.dropdown-toggle(href='#', data-toggle='dropdown')
+										| Utenti
+										span.caret
+											ul.dropdown-menu(role='menu')
+												li
+													a(href='/accounts') Gestici Utenti
+												li.divider
+												li
+													a(href='/account') Nuovo Utente
 						.navbar-form.navbar-right
-							a(href="/logout")#btn-logout.btn.btn-primary
-								i.glyphicon.glyphicon-lock.icon-white
-								|  Sign Out
+							a.dropdown-toggle(href='#', data-toggle='dropdown')
+									i.glyphicon.glyphicon-user.icon-white
+									|   #{locals.udata.name}
+									span.caret
+										ul.dropdown-menu(role='menu')
+											li
+												a(href='/settings')
+													i.glyphicon.glyphicon-cog
+													|   Impostazioni
+											li.divider
+											li
+												a(href='/account?id='+locals.udata._id)
+													i.glyphicon.glyphicon-user
+													|  Account
+												
+											li.divider
+											li
+												a(href='/logout')
+													i.glyphicon.glyphicon-log-out
+													|   Logout
 			.container-fluid.cnt
 				div.row
-					div.col-sm-2
-						.list-group
-							a(href="/clients").list-group-item
-								i.glyphicon.glyphicon-chevron-right.pull-right
-								span=__("Clients")
-							a(href="/client").list-group-item.submenu
-								i.glyphicon.glyphicon-chevron-right.pull-right
-								span=__("New client")
-							a(href='/offers').list-group-item
-								i.glyphicon.glyphicon-chevron-right.pull-right
-								span=__("Offers")
-							a(href='/offer').list-group-item.submenu
-								i.glyphicon.glyphicon-chevron-right.pull-right
-								span=__("New offer")				
-							a(href="/invoices").list-group-item
-								i.glyphicon.glyphicon-chevron-right.pull-right
-								span=__("Invoices")
-							a(href='/invoice').list-group-item.submenu
-								i.glyphicon.glyphicon-chevron-right.pull-right
-								span=__("New invoice")
-							a(href='/accounts').list-group-item
-								i.glyphicon.glyphicon-chevron-right.pull-right
-								span=__("Accounts")
-							a(href='/account').list-group-item.submenu
-								i.glyphicon.glyphicon-chevron-right.pull-right
-								span=__("New account")				
-							a(href='/account?id='+locals.udata._id).list-group-item.submenu
-								i.glyphicon.glyphicon-chevron-right.pull-right
-								span=__("My account")
-							- if (locals.udata.role == 'admin')			
-								a(href='/settings').list-group-item
-									i.glyphicon.glyphicon-chevron-right.pull-right
-									span=__("Settings")				
-					div.col-sm-10!= body
+					div.col-sm-12!= body
 		- else 
 			.container-fluid.cnt!= body
 		// display form errors in a custom modal window //

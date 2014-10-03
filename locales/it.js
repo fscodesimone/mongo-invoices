@@ -133,5 +133,11 @@
 	"Account saved with success": "Account salvato con successo.",
 	"Login To Your Account": "Login To Your Account",
 	"Accedi": "Accedi",
-	"Gestione Fatture  -  Login PAge": "Gestione Fatture  -  Login PAge"
+	"Gestione Fatture  -  Login PAge": "Gestione Fatture  -  Login PAge",
+	"User not found": "User not found",
+	"Please enter a valid Role": "Please enter a valid Role",
+	"Please enter a valid Password": "Please enter a valid Password",
+	"Please enter a valid Username": "Please enter a valid Username",
+	"Account deleted successfully": "Account deleted successfully",
+	"Please enter a Country": "Please enter a Country"
 }

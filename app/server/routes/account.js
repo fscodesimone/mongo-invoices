@@ -7,6 +7,7 @@ exports.get = function get(req, res) {
   if (req.session.user == null){
     res.redirect('/?from='+req.url);
   } else {
+	console.log('get accounts invocato');
     if (req.query.id) {
       DB.accounts.findOne({_id:new ObjectID(req.query.id)}, function(e, result) {
         res.render('account', {  locals: { title: __('Account'), countries : CT, result : result, udata : req.session.user } });
@@ -21,6 +22,7 @@ exports.post = function post(req, res) {
   if (req.session.user == null) {
     res.redirect('/?from='+req.url);
   } else {
+	console.log('posted new account');
     helpers.validateFormAccount(req.body, function(e, o) {
       if (e.length) {
         if (req.body.ajax) {
@@ -76,7 +78,7 @@ exports.post = function post(req, res) {
               if (req.body.ajax) {
                 res.send({msg:{e:e}}, 200);
               } else {
-                res.render('account', {  locals: {  title: __("Client"), countries : CT, result : o[0], msg:{e:e}, udata : req.session.user } });
+                res.render('accounts', {  locals: {  title: __("Client"), countries : CT, result : o[0], msg:{e:e}, udata : req.session.user } });
               }
             } else {
               e.push({name:"",m:__("Account saved with success")});
@@ -84,7 +86,7 @@ exports.post = function post(req, res) {
                 res.send({msg:{c:e}}, 200);
               } else {
                 DB.accounts.findOne({_id:o[0]._id},function(err, result) {
-                  res.render('account', {  locals: {  title: __("Client"), countries : CT, result : result, msg:{c:e}, udata : req.session.user } });
+                  res.render('accounts', {  locals: {  title: __("Client"), countries : CT, result : result, msg:{c:e}, udata : req.session.user } });
                 });
               }
             }
