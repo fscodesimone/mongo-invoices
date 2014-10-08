@@ -5,7 +5,7 @@
 .print_container {
   font-family: "DINPro-Medium";
 }
-/*
+
 .print_container {
   font-size: 15px;
   background-color: #fff;
@@ -28,7 +28,7 @@
 }
 .print_container header .logo {
   margin: 0 0 20px -15px;
-  height: 80px;
+  height: 130px;
   font-size: 35px;
 }
 .print_container .print_data {
@@ -37,8 +37,19 @@
 .print_container .print_items {
   min-height: 570px;
 }
+
+.print_container header .company_row1 {
+  color: #999;
+  margin-top: -180px;
+  width: 330px;
+  float: right;
+}
+
 .print_container header .company_row2 {
   color: #999;
+  margin-top: -80px;
+  width: 330px;
+  float: right;
 }
 .cntPadd {
   padding: 50px 50px 50px 125px;
@@ -68,4 +79,3 @@
     display: none;
   }
 }
-*/
