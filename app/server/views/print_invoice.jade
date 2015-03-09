@@ -7,47 +7,23 @@ header
 			span=_config.company.name
 	.company_row1!=_config.company.row1
 	.company_row2!=_config.company.row2
+	br
 section.print_data.clearfix
 	table.print_data_col1
 		tr
 			td.nowrap.muted=__("Invoice number")
-			td.nowrap.paddingright.paddingleft=result.invoice_number
-			td.nowrap.muted=__("Invoice date")
+			td.nowrap.muted=result.invoice_number+"/"+d.getFullYear()
+		tr
+			td.nowrap.muted="Emessa il :"
 			- d = result.invoice_date;
 			td=d.getDate()+"/"+(d.getMonth()+1)+"/"+d.getFullYear()
 		tr
-			td(colspan="2").nowrap.muted=__("Client")
-			td(colspan="2")
-				b=(result.to_client.name+" ")
-				br
-				span=result.to_client.address.street+" "+result.to_client.address.city+" "+result.to_client.address.country
+			td(colspan="2").nowrap.muted="All'Attenzione: "
+			td.nowrap.muted=result.to_client.address.street+" "+result.to_client.address.city+" "+result.to_client.address.country
 		tr
-			td(colspan="2").nowrap.muted=__("VAT number")
+			td(colspan="2").nowrap.muted= __("VAT number")
 			td(colspan="2")=result.to_client.vat_number
-		tr
-			td(colspan="2").nowrap.muted=__("Fiscal code")
-			td(colspan="2")=result.to_client.fiscal_code
-	table.print_data_col2
-		tr
-			td.nowrap.muted=__("Payment")
-			td=result.payment
-		- if (typeof result.destination!=="undefined")
-			tr
-				td.nowrap.muted=__("Shipped to")
-				td=result.destination
-		- if (typeof result.offer!=="undefined")
-			tr
-				td.nowrap.muted=__("Offer number")
-				td=result.offer.offer_number
-			tr
-				td.nowrap.muted=__("Offer date")
-				- d = result.offer.offer_date;
-				td=(d ? d.getDate()+"/"+(d.getMonth()+1)+"/"+d.getFullYear() :"")
-		- if (typeof result.delivery_date!=="undefined")
-			tr
-				td.nowrap.muted=__("Delivery date")
-				- d = result.delivery_date;
-				td=(d ? d.getDate()+"/"+(d.getMonth()+1)+"/"+d.getFullYear() :"")
+br
 section.print_items
 	table.table
 		thead
@@ -77,14 +53,19 @@ section.print_items
 						div=_config.currency[0]+" "+result.subtotal
 			tr
 				td(colspan="3")
-					.pull-right.muted=__("VAT")+" "+result.vat_perc+" %"
+					.pull-right.muted="Cassa Previdenziale"+" "+result.cassa_previdenziale[0]+" %"
 				td.price
-						div=_config.currency[0]+" "+result.vat_amount
+						div=_config.currency[0]+" "+result.cassa_previdenziale[1]
 			tr
 				td(colspan="3")
-					.pull-right.muted=__("Shipping costs")
+					.pull-right.muted="Rivalsa INPS"+" "+result.rivalsa[0]+" %"
 				td.price
-						div=_config.currency[0]+" "+result.shipping_costs
+						div=_config.currency[0]+" "+result.rivalsa[1]
+			tr
+				td(colspan="3")
+					.pull-right.muted="Marca Da Bollo"
+				td.price
+						div=_config.currency[0]+" "+result.marca_bollo
 			tr
 				td(colspan="3")
 					.pull-right.muted=__("TOTAL")

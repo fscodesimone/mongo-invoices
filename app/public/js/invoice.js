@@ -74,7 +74,10 @@ $(function() {
 	});
 	
 	// Binds
-	$("#vat_perc").bind("blur", function() {
+	$("#rivalsa").bind("blur", function() {
+		updateTotal();
+	});
+	$("#cassa_previdenziale").bind("blur", function() {
 		updateTotal();
 	});
 	$("#shipping_costs").bind("blur", function() {
@@ -242,12 +245,9 @@ function updateTotal(){
 			subtot += parseFloat(accounting.unformat($(this).val(), ","));
 	});
 	$('.subtotal').val(accounting.formatMoney(subtot));
+	$('.cassa_amount').val(accounting.formatMoney((subtot/100)*4));
+	$('.rivalsa_amount').val(accounting.formatMoney((subtot/100)*4));
 	var failed = false;
-	if (checkVATPerc($('#vat_perc'))) {
-		$('.vat_amount').val(accounting.formatMoney((subtot/100)*$('#vat_perc').val()));
-	} else {
-		failed = true;
-	}
 	if(checkShippingCosts($('#shipping_costs'))) {
 		$('#shipping_costs').val(accounting.formatMoney(accounting.unformat($('#shipping_costs').val(), ",")));
 	} else {

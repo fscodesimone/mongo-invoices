@@ -67,7 +67,7 @@ exports.post = function post(req, res) {
 							if (req.body.id) {
 								DB.update_invoice(req.body, req.session.user, function(e, o){
 									errors.push({name:"",m:__("Invoice saved with success")});
-									console.dir("bella");
+									console.dir("invoice saved with success");
 									res.render('invoice', {	locals: {	title: __("Invoice"), result : helpers.formatMoney(o), msg:{c:errors}, udata : req.session.user } });
 								});
 							} else {
@@ -81,7 +81,7 @@ exports.post = function post(req, res) {
 										msg.c.push({name:"",m:__("Invoice saved with success")});
 									}
 									res.redirect('/invoice/?id='+o[0]._id);
-//									res.render('invoice', {	locals: {	title: __("Invoice"), result : helpers.formatMoney(o[0]), msg:msg, udata : req.session.user } });
+									res.render('invoice', {	locals: {	title: __("Invoice"), result : helpers.formatMoney(o[0]), msg:msg, udata : req.session.user } });
 								});
 							}
 						} else {

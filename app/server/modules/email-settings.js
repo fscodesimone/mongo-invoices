@@ -1,9 +1,9 @@
 
 module.exports = {
 	
-	host		: 'smtp.gmail.com',
-	user 		: 'g.delgobbo@gmail.com',
-	password 	: '45153gia',
-	sender		: 'Bella <g.delgobbo@gmail.com>'
+	host		: 'localost',
+	user 		: 'noreply@webmakeapp.com',
+	password 	: '',
+	sender		: 'WebMakeApp Invoice <noreply@webmakeapp.com>'
 	
 }

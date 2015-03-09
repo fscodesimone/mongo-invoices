@@ -169,23 +169,39 @@ form(method="post", action="/invoice/?id="+result._id,onsubmit='$("[disabled]").
 				td
 				td
 					.input-group
-						label.input-group-addon(for='vat_perc')=__("VAT")
-						input(type="text", name="vat_perc", value=result.vat_perc).form-control#vat_perc.input-mini
+						label.input-group-addon(for='rivalsa')="Rivalsa INPS"
+						input(type="text", name="rivalsa", value="4").form-control#rivalsa.input-mini
 						span.input-group-addon %
 				td
 					.input-group
 						span.input-group-addon=_config.currency[0]
-						input(type="text", name="vat_amount", value=result.vat_amount, disabled).form-control.totals.vat_amount.input-medium
+						input(type="text", name="rivalsa", value=result.rivalsa_amount, disabled).form-control.totals.rivalsa_amount.input-medium
+				td
+				td
 				td
 			tr
 				td
 				td
 				td
-					label.pull-right(for='shipping_costs')=__("Shipping costs")
+					.input-group
+						label.input-group-addon(for='cassa_previdenziale')="Cassa Previdenziale"
+						input(type="text", name="cassa_previdenziale", value="4").form-control#cassa_previdenziale.input-mini
+						span.input-group-addon %
 				td
 					.input-group
 						span.input-group-addon=_config.currency[0]
-						input(type="text", name="shipping_costs", value=result.shipping_costs).form-control.totals#shipping_costs.input-medium
+						input(type="text", name="cassa_previdenziale", value=result.cassa_amount, disabled).form-control.totals.cassa_amount.input-medium
+				td
+				td
+			tr
+				td
+				td
+				td
+					label.pull-right(for='marca_bollo')=__("Marca da Bollo")
+				td
+					.input-group
+						span.input-group-addon=_config.currency[0]
+						input(type="text", name="marca_bollo", value=result.marca_bollo).form-control.totals#marca_bollo.input-medium
 				td
 			tr
 				td

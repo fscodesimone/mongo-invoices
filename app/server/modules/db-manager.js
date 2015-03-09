@@ -136,47 +136,6 @@ DB.saltAndHash = function(pass, callback) {
 }
 
 
-/*
-// just for testing - these are not actually being used //
-
-DB.findById = function(id, callback) {
-	DB.accounts.findOne({_id: new ObjectID(id)},
-		function(e, res) {
-		if (e) callback(e)
-		else callback(null, res)
-	});
-}
-
-
-DB.findByMultipleFields = function(a, callback) {
-// this takes an array of name/val pairs to search against {fieldName : 'value'} //
-	DB.accounts.find( { $or : a } ).toArray(
-		function(e, results) {
-		if (e) callback(e)
-		else callback(null, results)
-	});
-}
-
-DB.getEmail = function(email, callback) {
-	DB.accounts.findOne({email:email}, function(e, o){ callback(o); });
-}
-
-DB.getObjectId = function(id) {
-	return DB.accounts.db.bson_serializer.ObjectID.createFromHexString(id)
-}
-DB.getAllRecords = function(callback) {
-	DB.accounts.find().toArray(
-		function(e, res) {
-		if (e) callback(e)
-		else callback(null, res)
-	});
-}
-
-DB.delAllRecords = function(id, callback) {
-	DB.accounts.remove(); // reset accounts collection for testing //
-}
-*/
-
 DB.insert_invoice = function(newData, userData, callback) {
 	delete newData.id;
 	var d = newData.invoice_date.split("/");
@@ -261,7 +220,7 @@ DB.update_offer = function(newData, userData, callback) {
 		d = newData.delivery_date.split("/");
 		newData.delivery_date = new Date(parseInt(d[2], 10),parseInt(d[1], 10)-1,parseInt(d[0], 10));
 		newData.offer_number=parseInt(newData.offer_number);
-		newData.vat_perc=parseInt(newData.vat_perc);
+		newData.vat_perc=parseInt(newData.cassa_perc);
 		unformatPrices(newData);
 		if (!newData.revisions)	newData.revisions = [];
 		newData.revisions.push({userID : userData._id,username: userData.name,time : new Date()});
@@ -301,8 +260,9 @@ DB.delete_client = function(id, callback) {
 
 function unformatPrices(newInvoice){
 	newInvoice.subtotal=parseFloat(accounting.unformat(newInvoice.subtotal, ","));
-	newInvoice.vat_amount=parseFloat(accounting.unformat(newInvoice.vat_amount, ","));
-	newInvoice.shipping_costs=parseFloat(accounting.unformat(newInvoice.shipping_costs, ","));
+	newInvoice.cassa_amount=parseFloat(accounting.unformat(newInvoice.cassa_amount, ","));
+	newInvoice.rivalsa_amount=parseFloat(accounting.unformat(newInvoice.rivalsa_amount, ","));
+	newInvoice.marca_bollo=parseFloat(accounting.unformat(newInvoice.marca_bollo, ","));
 	newInvoice.total=parseFloat(accounting.unformat(newInvoice.total, ","));
 	for (item in newInvoice.items) {
 		newInvoice.items[item].price=parseFloat(accounting.unformat(newInvoice.items[item].price, ","));
